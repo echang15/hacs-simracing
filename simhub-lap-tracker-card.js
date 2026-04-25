@@ -87,7 +87,7 @@ class SimHubLapTrackerCard extends LitElement {
     const car = attrs.car || "Unknown Car";
 
     // Fallback vector car if image doesn't load
-    const fallbackSvg = encodeURIComponent(\`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,0.1)"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>\`);
+    const fallbackSvg = encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,0.1)"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>`);
 
     return html`
       <ha-card>
@@ -124,7 +124,7 @@ class SimHubLapTrackerCard extends LitElement {
           <div class="recent-laps-section">
             <div class="section-label">RECENT LAPS</div>
             <div class="recent-laps-list">
-              ${this._recentLaps.length === 0 ? html\`<div class="no-recent">No recent laps recorded</div>\` : ''}
+              ${this._recentLaps.length === 0 ? html`<div class="no-recent">No recent laps recorded</div>` : ''}
               ${this._recentLaps.map((lap, index) => html`
                 <div class="recent-lap-item" style="animation-delay: ${index * 0.1}s">
                   <div class="lap-indicator">P${index + 1}</div>
@@ -148,10 +148,10 @@ class SimHubLapTrackerCard extends LitElement {
     
     if (seconds < 60) return "Just now";
     const minutes = Math.floor(seconds / 60);
-    if (minutes < 60) return \`\${minutes}m ago\`;
+    if (minutes < 60) return `${minutes}m ago`;
     const hours = Math.floor(minutes / 60);
-    if (hours < 24) return \`\${hours}h ago\`;
-    return \`\${Math.floor(hours / 24)}d ago\`;
+    if (hours < 24) return `${hours}h ago`;
+    return `${Math.floor(hours / 24)}d ago`;
   }
 
   static get styles() {
