@@ -39,7 +39,7 @@ class SimHubLapTrackerCard extends LitElement {
         if (this._lastRecentTimestamp !== recentStateObj.attributes.timestamp) {
           // New recent lap detected
           this._lastRecentTimestamp = recentStateObj.attributes.timestamp;
-          
+
           const newLap = {
             lap_time: recentStateObj.state,
             timestamp: recentStateObj.attributes.timestamp,
@@ -51,9 +51,9 @@ class SimHubLapTrackerCard extends LitElement {
 
           // Check if this lap already exists to prevent duplicate on startup
           const isDuplicate = this._recentLaps.some(lap => lap.timestamp === newLap.timestamp);
-          
+
           if (!isDuplicate) {
-             this._recentLaps = [newLap, ...this._recentLaps].slice(0, 3);
+            this._recentLaps = [newLap, ...this._recentLaps].slice(0, 3);
           }
         }
       }
@@ -80,7 +80,7 @@ class SimHubLapTrackerCard extends LitElement {
 
     const attrs = bestStateObj.attributes;
     const bestLapTime = bestStateObj.state;
-    
+
     const track = attrs.track || "Unknown Track";
     const layout = attrs.layout || "Default Layout";
     const trackId = track.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/_$/, '');
@@ -146,7 +146,7 @@ class SimHubLapTrackerCard extends LitElement {
     const date = new Date(timestamp);
     const now = new Date();
     const seconds = Math.floor((now - date) / 1000);
-    
+
     if (seconds < 60) return "Just now";
     const minutes = Math.floor(seconds / 60);
     if (minutes < 60) return `${minutes}m ago`;
@@ -309,9 +309,12 @@ class SimHubLapTrackerCard extends LitElement {
       }
 
       .car-image {
-        width: 140px;
+        max-width: 140px;
+        max-height: 75px;
+        width: auto;
         height: auto;
         object-fit: contain;
+        border-radius: 6px;
         filter: drop-shadow(0 10px 15px rgba(0,0,0,0.6));
         transition: transform 0.3s ease;
       }
@@ -418,6 +421,6 @@ window.customCards = window.customCards || [];
 window.customCards.push({
   type: "simhub-lap-tracker-card",
   name: "SimHub Lap Tracker",
-  preview: true, 
+  preview: true,
   description: "A premium broadcast-style card for tracking SimHub lap times"
 });
