@@ -1,0 +1,310 @@
+{
+  "automobilista_2_tracks": [
+    {
+      "id": "adelaide",
+      "name": "Adelaide",
+      "country": "Australia",
+      "dlc": "Base"
+    },
+    {
+      "id": "auto_club",
+      "name": "Auto Club Speedway (Fontana)",
+      "country": "USA",
+      "dlc": "Racin' USA Pt3"
+    },
+    {
+      "id": "barcelona",
+      "name": "Circuit de Barcelona-Catalunya",
+      "country": "Spain",
+      "dlc": "Premium Track Pack"
+    },
+    {
+      "id": "bathurst",
+      "name": "Bathurst (Mount Panorama)",
+      "country": "Australia",
+      "dlc": "Base"
+    },
+    {
+      "id": "brands_hatch",
+      "name": "Brands Hatch",
+      "country": "UK",
+      "dlc": "Base"
+    },
+    {
+      "id": "brasilia",
+      "name": "Brasilia",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "buenos_aires",
+      "name": "Buenos Aires",
+      "country": "Argentina",
+      "dlc": "Base"
+    },
+    {
+      "id": "cadwell_park",
+      "name": "Cadwell Park",
+      "country": "UK",
+      "dlc": "Base"
+    },
+    {
+      "id": "cambridge",
+      "name": "Cambridge (Fictional)",
+      "country": "UK",
+      "dlc": "Base"
+    },
+    {
+      "id": "campo_grande",
+      "name": "Campo Grande",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "cascavel",
+      "name": "Cascavel",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "cleveland",
+      "name": "Cleveland (Burke Lakefront)",
+      "country": "USA",
+      "dlc": "Racin' USA Pt2"
+    },
+    {
+      "id": "cordoba",
+      "name": "Cordoba",
+      "country": "Argentina",
+      "dlc": "Base"
+    },
+    {
+      "id": "curitiba",
+      "name": "Curitiba",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "daytona",
+      "name": "Daytona International Speedway",
+      "country": "USA",
+      "dlc": "Racin' USA Pt1"
+    },
+    {
+      "id": "donington_park",
+      "name": "Donington Park",
+      "country": "UK",
+      "dlc": "Base"
+    },
+    {
+      "id": "estoril",
+      "name": "Estoril",
+      "country": "Portugal",
+      "dlc": "Base"
+    },
+    {
+      "id": "gateway",
+      "name": "Gateway (World Wide Technology Raceway)",
+      "country": "USA",
+      "dlc": "Racin' USA Pt3"
+    },
+    {
+      "id": "goiania",
+      "name": "Goiânia",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "guapore",
+      "name": "Guaporé",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "hockenheimring",
+      "name": "Hockenheimring",
+      "country": "Germany",
+      "dlc": "Premium Track Pack"
+    },
+    {
+      "id": "ibarra",
+      "name": "Ibarra (Yahuarcocha)",
+      "country": "Ecuador",
+      "dlc": "Base"
+    },
+    {
+      "id": "imola",
+      "name": "Imola (Autodromo Enzo e Dino Ferrari)",
+      "country": "Italy",
+      "dlc": "Base"
+    },
+    {
+      "id": "indianapolis",
+      "name": "Indianapolis Motor Speedway",
+      "country": "USA",
+      "dlc": "Racin' USA Pt3"
+    },
+    {
+      "id": "interlagos",
+      "name": "Interlagos (Autódromo José Carlos Pace)",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "jerez",
+      "name": "Jerez",
+      "country": "Spain",
+      "dlc": "Base"
+    },
+    {
+      "id": "kansai",
+      "name": "Kansai (Suzuka)",
+      "country": "Japan",
+      "dlc": "Base"
+    },
+    {
+      "id": "kyalami",
+      "name": "Kyalami",
+      "country": "South Africa",
+      "dlc": "Base"
+    },
+    {
+      "id": "laguna_seca",
+      "name": "Laguna Seca",
+      "country": "USA",
+      "dlc": "Racin' USA Pt1"
+    },
+    {
+      "id": "londrina",
+      "name": "Londrina",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "long_beach",
+      "name": "Long Beach",
+      "country": "USA",
+      "dlc": "Racin' USA Pt1"
+    },
+    {
+      "id": "macau",
+      "name": "Macau",
+      "country": "Macau",
+      "dlc": "Base"
+    },
+    {
+      "id": "monza",
+      "name": "Monza",
+      "country": "Italy",
+      "dlc": "Premium Track Pack"
+    },
+    {
+      "id": "mosport",
+      "name": "Mosport (Canadian Tire Motorsport Park)",
+      "country": "Canada",
+      "dlc": "IMSA Track Pack"
+    },
+    {
+      "id": "nurburgring",
+      "name": "Nürburgring (GP & Nordschleife)",
+      "country": "Germany",
+      "dlc": "Premium Track Pack"
+    },
+    {
+      "id": "oulton_park",
+      "name": "Oulton Park",
+      "country": "UK",
+      "dlc": "Base"
+    },
+    {
+      "id": "portimao",
+      "name": "Portimão (Algarve)",
+      "country": "Portugal",
+      "dlc": "Base"
+    },
+    {
+      "id": "road_america",
+      "name": "Road America",
+      "country": "USA",
+      "dlc": "Racin' USA Pt2"
+    },
+    {
+      "id": "road_atlanta",
+      "name": "Road Atlanta",
+      "country": "USA",
+      "dlc": "IMSA Track Pack"
+    },
+    {
+      "id": "santa_cruz",
+      "name": "Santa Cruz do Sul",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "sebring",
+      "name": "Sebring International Raceway",
+      "country": "USA",
+      "dlc": "IMSA Track Pack"
+    },
+    {
+      "id": "silverstone",
+      "name": "Silverstone",
+      "country": "UK",
+      "dlc": "Premium Track Pack"
+    },
+    {
+      "id": "snetterton",
+      "name": "Snetterton",
+      "country": "UK",
+      "dlc": "Base"
+    },
+    {
+      "id": "spa",
+      "name": "Spa-Francorchamps",
+      "country": "Belgium",
+      "dlc": "Premium Track Pack"
+    },
+    {
+      "id": "spielberg",
+      "name": "Spielberg (Red Bull Ring)",
+      "country": "Austria",
+      "dlc": "Base"
+    },
+    {
+      "id": "taruma",
+      "name": "Tarumã",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "texas",
+      "name": "Texas Motor Speedway",
+      "country": "USA",
+      "dlc": "Racin' USA Pt3"
+    },
+    {
+      "id": "velo_citta",
+      "name": "Velo Città",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "velopark",
+      "name": "Velopark",
+      "country": "Brazil",
+      "dlc": "Base"
+    },
+    {
+      "id": "virginia",
+      "name": "Virginia International Raceway (VIR)",
+      "country": "USA",
+      "dlc": "Base"
+    },
+    {
+      "id": "watkins_glen",
+      "name": "Watkins Glen International",
+      "country": "USA",
+      "dlc": "Racin' USA Pt2"
+    }
+  ]
+}

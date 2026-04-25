@@ -1,0 +1,280 @@
+{
+  "automobilista_2_cars": [
+    {
+      "id": "formula_ultimate_gen2",
+      "name": "Formula Ultimate Gen2",
+      "class": "Formula Ultimate",
+      "dlc": "Base"
+    },
+    {
+      "id": "formula_ultimate_gen1",
+      "name": "Formula Ultimate Gen1",
+      "class": "Formula Ultimate",
+      "dlc": "Base"
+    },
+    {
+      "id": "formula_v10_gen2",
+      "name": "Formula V10 Gen2",
+      "class": "Formula V10",
+      "dlc": "Base"
+    },
+    {
+      "id": "formula_v10_gen1",
+      "name": "Formula V10 Gen1",
+      "class": "Formula V10",
+      "dlc": "Base"
+    },
+    {
+      "id": "formula_reiza",
+      "name": "Formula Reiza",
+      "class": "Formula Reiza",
+      "dlc": "Base"
+    },
+    {
+      "id": "formula_classic_gen3",
+      "name": "Formula Classic Gen3",
+      "class": "Formula Classic",
+      "dlc": "Base"
+    },
+    {
+      "id": "formula_usa_2023",
+      "name": "Formula USA 2023",
+      "class": "Formula USA",
+      "dlc": "Racin' USA Pt3"
+    },
+    {
+      "id": "formula_usa_gen1",
+      "name": "Formula USA Gen1",
+      "class": "Formula USA",
+      "dlc": "Racin' USA Pt2"
+    },
+    {
+      "id": "porsche_911_gt3_r",
+      "name": "Porsche 911 GT3 R",
+      "class": "GT3",
+      "dlc": "Base"
+    },
+    {
+      "id": "mclaren_720s_gt3",
+      "name": "McLaren 720S GT3",
+      "class": "GT3",
+      "dlc": "Base"
+    },
+    {
+      "id": "mercedes_amg_gt3",
+      "name": "Mercedes AMG GT3",
+      "class": "GT3",
+      "dlc": "Base"
+    },
+    {
+      "id": "bmw_m4_gt3",
+      "name": "BMW M4 GT3",
+      "class": "GT3",
+      "dlc": "Base"
+    },
+    {
+      "id": "nissan_gtr_gt3",
+      "name": "Nissan GT-R Nismo GT3",
+      "class": "GT3",
+      "dlc": "Base"
+    },
+    {
+      "id": "porsche_911_rsr_gte",
+      "name": "Porsche 911 RSR",
+      "class": "GTE",
+      "dlc": "Base"
+    },
+    {
+      "id": "corvette_c8r_gte",
+      "name": "Corvette C8.R",
+      "class": "GTE",
+      "dlc": "Racin' USA Pt1"
+    },
+    {
+      "id": "bmw_m8_gte",
+      "name": "BMW M8 GTE",
+      "class": "GTE",
+      "dlc": "Base"
+    },
+    {
+      "id": "porsche_cayman_gt4",
+      "name": "Porsche 718 Cayman GT4 Clubsport",
+      "class": "GT4",
+      "dlc": "Base"
+    },
+    {
+      "id": "mclaren_570s_gt4",
+      "name": "McLaren 570S GT4",
+      "class": "GT4",
+      "dlc": "Base"
+    },
+    {
+      "id": "bmw_m4_gt4",
+      "name": "BMW M4 GT4",
+      "class": "GT4",
+      "dlc": "Base"
+    },
+    {
+      "id": "camaro_gt4r",
+      "name": "Chevrolet Camaro GT4.R",
+      "class": "GT4",
+      "dlc": "Base"
+    },
+    {
+      "id": "ginetta_g55_gt4",
+      "name": "Ginetta G55 GT4",
+      "class": "GT4",
+      "dlc": "Base"
+    },
+    {
+      "id": "porsche_911_gt1",
+      "name": "Porsche 911 GT1-98",
+      "class": "GT1",
+      "dlc": "Base"
+    },
+    {
+      "id": "mercedes_clk_lm",
+      "name": "Mercedes-Benz CLK LM",
+      "class": "GT1",
+      "dlc": "Base"
+    },
+    {
+      "id": "mclaren_f1_gtr",
+      "name": "McLaren F1 GTR",
+      "class": "GT1",
+      "dlc": "Base"
+    },
+    {
+      "id": "porsche_962c",
+      "name": "Porsche 962C",
+      "class": "Group C",
+      "dlc": "Base"
+    },
+    {
+      "id": "sauber_c9",
+      "name": "Sauber C9",
+      "class": "Group C",
+      "dlc": "Base"
+    },
+    {
+      "id": "cadillac_dpi",
+      "name": "Cadillac DPi-V.R",
+      "class": "DPi",
+      "dlc": "Racin' USA Pt1"
+    },
+    {
+      "id": "metalmoro_ajr",
+      "name": "Metalmoro AJR",
+      "class": "P1",
+      "dlc": "Base"
+    },
+    {
+      "id": "ginetta_g58",
+      "name": "Ginetta G58",
+      "class": "P1",
+      "dlc": "Base"
+    },
+    {
+      "id": "sigma_p1",
+      "name": "Sigma P1",
+      "class": "P1",
+      "dlc": "Base"
+    },
+    {
+      "id": "metalmoro_mrx_p2",
+      "name": "Metalmoro MRX P2",
+      "class": "P2",
+      "dlc": "Base"
+    },
+    {
+      "id": "sigma_p2",
+      "name": "Sigma P2",
+      "class": "P2",
+      "dlc": "Base"
+    },
+    {
+      "id": "stock_car_corolla_2023",
+      "name": "Toyota Corolla (Stock Car 2023)",
+      "class": "Stock Car Brasil",
+      "dlc": "Base"
+    },
+    {
+      "id": "stock_car_cruze_2023",
+      "name": "Chevrolet Cruze (Stock Car 2023)",
+      "class": "Stock Car Brasil",
+      "dlc": "Base"
+    },
+    {
+      "id": "copa_truck_mercedes",
+      "name": "Mercedes-Benz Copa Truck",
+      "class": "Copa Truck",
+      "dlc": "Base"
+    },
+    {
+      "id": "copa_truck_vw",
+      "name": "Volkswagen Copa Truck",
+      "class": "Copa Truck",
+      "dlc": "Base"
+    },
+    {
+      "id": "sprint_race",
+      "name": "Sprint Race V6",
+      "class": "Sprint Race",
+      "dlc": "Base"
+    },
+    {
+      "id": "caterham_superlight",
+      "name": "Caterham Superlight",
+      "class": "Caterham",
+      "dlc": "Base"
+    },
+    {
+      "id": "caterham_620r",
+      "name": "Caterham 620R",
+      "class": "Caterham",
+      "dlc": "Base"
+    },
+    {
+      "id": "mitsubishi_lancer_rs",
+      "name": "Mitsubishi Lancer RS",
+      "class": "Lancer Cup",
+      "dlc": "Base"
+    },
+    {
+      "id": "vw_polo_gts",
+      "name": "Volkswagen Polo GTS",
+      "class": "TSI Cup",
+      "dlc": "Base"
+    },
+    {
+      "id": "mini_jcw",
+      "name": "MINI JCW",
+      "class": "MINI Challenge",
+      "dlc": "Base"
+    },
+    {
+      "id": "copa_fusca",
+      "name": "Copa Fusca (VW Beetle)",
+      "class": "Classic",
+      "dlc": "Base"
+    },
+    {
+      "id": "super_v8",
+      "name": "Super V8 (Holden Commodore)",
+      "class": "Super V8",
+      "dlc": "Base"
+    },
+    {
+      "id": "kart_shifter",
+      "name": "Kart Shifter",
+      "class": "Kart",
+      "dlc": "Base"
+    },
+    {
+      "id": "kart_rental",
+      "name": "Kart Rental",
+      "class": "Kart",
+      "dlc": "Base"
+    }
+  ]
+}
