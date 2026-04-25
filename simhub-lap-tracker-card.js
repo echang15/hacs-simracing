@@ -83,6 +83,7 @@ class SimHubLapTrackerCard extends LitElement {
     
     const track = attrs.track || "Unknown Track";
     const layout = attrs.layout || "Default Layout";
+    const trackId = track.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/_$/, '');
     const driver = attrs.driver || "Unknown Driver";
     const car = attrs.car || "Unknown Car";
 
@@ -99,7 +100,7 @@ class SimHubLapTrackerCard extends LitElement {
               <span class="driver-label">DRIVER</span>
               <div class="driver-name">${driver}</div>
             </div>
-            <div class="track-info">
+            <div class="track-info" style="background-image: url('/local/simhub/tracks/${trackId}.png');">
               <div class="track-name">${track}</div>
               <div class="track-layout">${layout}</div>
             </div>
@@ -245,6 +246,16 @@ class SimHubLapTrackerCard extends LitElement {
 
       .track-info {
         text-align: right;
+        min-width: 150px;
+        min-height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-size: 100px;
+        background-position: right center;
+        background-repeat: no-repeat;
+        padding-right: 4px;
+        border-radius: 8px;
       }
 
       .track-name {
@@ -252,6 +263,7 @@ class SimHubLapTrackerCard extends LitElement {
         font-weight: 600;
         font-size: 1.2rem;
         color: var(--accent-neon);
+        text-shadow: 0 2px 8px rgba(0,0,0,1);
       }
 
       .track-layout {
@@ -259,6 +271,7 @@ class SimHubLapTrackerCard extends LitElement {
         font-size: 0.85rem;
         color: var(--text-muted);
         text-transform: uppercase;
+        text-shadow: 0 1px 4px rgba(0,0,0,1);
       }
 
       .middle-row {
