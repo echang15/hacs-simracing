@@ -128,9 +128,9 @@ class SimHubLapTrackerCard extends LitElement {
               ${this._recentLaps.length === 0 ? html`<div class="no-recent">No recent laps recorded</div>` : ''}
               ${this._recentLaps.map((lap, index) => html`
                 <div class="recent-lap-item" style="animation-delay: ${index * 0.1}s">
-                  <div class="lap-indicator">P${index + 1}</div>
+                  <div class="lap-driver-name">${lap.driver}</div>
+                  <div class="lap-car-name">${lap.car.replace(/_/g, ' ').toUpperCase()}</div>
                   <div class="lap-time-recent">${lap.lap_time}</div>
-                  <div class="lap-time-ago">${this.getRelativeTime(lap.timestamp)}</div>
                 </div>
               `)}
             </div>
@@ -370,26 +370,35 @@ class SimHubLapTrackerCard extends LitElement {
         100% { opacity: 1; transform: translateY(0); }
       }
 
-      .lap-indicator {
+      .lap-driver-name {
         font-family: var(--font-f1);
         font-weight: 700;
         font-style: italic;
-        color: var(--accent-secondary);
-        width: 40px;
+        color: var(--text-main);
+        width: 35%;
         font-size: 1.1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .lap-car-name {
+        font-family: var(--font-numbers);
+        font-size: 0.75rem;
+        color: var(--accent-secondary);
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0 10px;
       }
 
       .lap-time-recent {
         font-family: var(--font-numbers);
         font-weight: 600;
         font-size: 1.2rem;
-        flex: 1;
-      }
-
-      .lap-time-ago {
-        font-family: var(--font-numbers);
-        font-size: 0.8rem;
-        color: var(--text-muted);
+        color: var(--accent-neon);
+        text-align: right;
       }
 
       .not-found {
