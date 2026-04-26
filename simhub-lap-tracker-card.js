@@ -81,14 +81,17 @@ class SimHubLapTrackerCard extends LitElement {
     const attrs = bestStateObj.attributes;
     const bestLapTime = bestStateObj.state;
 
-    const track = attrs.track || "Unknown Track";
-    const layout = attrs.layout || "Default Layout";
+    const rawTrack = attrs.track || "Unknown Track";
+    const rawLayout = attrs.layout || "Default Layout";
     const driver = attrs.driver || "Unknown Driver";
     const car = attrs.car || "Unknown Car";
 
     const imageBaseUrl = this.config.image_base_url || 'https://raw.githubusercontent.com/echang15/hacs-simracing/main';
-    const trackPaths = this._generateImagePaths(`${imageBaseUrl}/tracks`, track);
+    const trackPaths = this._generateImagePaths(`${imageBaseUrl}/tracks`, rawTrack);
     const carPaths = this._generateImagePaths(`${imageBaseUrl}/cars`, car);
+
+    const displayTrack = this._formatTrackName(rawTrack);
+    const displayLayout = this._formatLayoutName(rawTrack, rawLayout);
 
     return html`
       <ha-card>
@@ -99,7 +102,7 @@ class SimHubLapTrackerCard extends LitElement {
             src="${trackPaths[0]}" 
             data-paths="${trackPaths.slice(1).join(',')}"
             @error="${this._handleImageError}" 
-            alt="${track}" />
+            alt="${displayTrack}" />
           
           <div class="top-row">
             <div class="driver-info">
@@ -107,8 +110,8 @@ class SimHubLapTrackerCard extends LitElement {
               <div class="driver-name">${driver}</div>
             </div>
             <div class="track-info">
-              <div class="track-name">${track}</div>
-              <div class="track-layout">${layout}</div>
+              <div class="track-name">${displayTrack}</div>
+              <div class="track-layout">${displayLayout}</div>
             </div>
           </div>
 
@@ -146,6 +149,46 @@ class SimHubLapTrackerCard extends LitElement {
         </div>
       </ha-card>
     `;
+  }
+
+  _formatTrackName(name) {
+    if (!name) return "Unknown Track";
+    return name
+      .replace(/_/g, ' ')
+      .replace(/([a-z])([A-Z])/g, '$1 $2')
+      .trim();
+  }
+
+  _formatLayoutName(track, layout) {
+    if (!layout || layout === 'Unknown Layout' || layout === 'Default Layout') {
+      return "Default Layout";
+    }
+    
+    // Replace underscores and dashes with spaces
+    let formatted = layout.replace(/[_-]/g, ' ');
+    
+    // If the track name is duplicated inside the layout string, remove it!
+    if (track) {
+      const trackWord = track.replace(/[^a-zA-Z0-9]/g, '');
+      if (trackWord.length > 3) {
+        const regex = new RegExp(trackWord, 'gi');
+        formatted = formatted.replace(regex, ' ');
+      }
+    }
+    
+    // Clean up any double spaces that might be left over
+    formatted = formatted.replace(/\s+/g, ' ').trim();
+    
+    // If stripping the track name left us with nothing, provide a default
+    if (!formatted) return "Default Layout";
+    
+    // Title Case the remaining words for a clean look
+    return formatted.split(' ').map(w => {
+      const upper = w.toUpperCase();
+      // Keep acronyms fully capitalized
+      if (['GP', 'GT', 'USA', 'UK', 'RX', 'INDY'].includes(upper)) return upper;
+      return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+    }).join(' ');
   }
 
   _generateImagePaths(basePath, name) {
