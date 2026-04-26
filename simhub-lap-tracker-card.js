@@ -516,7 +516,7 @@ class SimHubLapTrackerCard extends LitElement {
       .lap-car-name {
         font-family: var(--font-numbers);
         font-size: 0.75rem;
-        color: var(--accent-secondary);
+        color: var(--text-main);
         flex: 1;
         white-space: nowrap;
         overflow: hidden;
