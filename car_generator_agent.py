@@ -7,7 +7,7 @@ from google import genai
 # ⚙️ CONFIGURATION
 # ==========================================
 # Get your free Gemini API key from Google AI Studio: https://aistudio.google.com/
-GEMINI_API_KEY = "your_gemini_api_key_here"
+GEMINI_API_KEY = "AIzaSyDO1j2CQ9iQabuMSNkwzi8qEiRQEIWeDU4"
 
 CARS_OUTPUT_DIR = "cars"
 TRACKS_OUTPUT_DIR = "tracks"
@@ -29,7 +29,7 @@ def generate_image(client, prompt, output_path):
     try:
         # We use the Imagen 3 model via the Gemini API
         result = client.models.generate_images(
-            model='imagen-3.0-generate-002',
+            model='imagen-4.0-generate-001',
             prompt=prompt,
             config=dict(
                 number_of_images=1,

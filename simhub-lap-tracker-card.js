@@ -83,12 +83,11 @@ class SimHubLapTrackerCard extends LitElement {
 
     const track = attrs.track || "Unknown Track";
     const layout = attrs.layout || "Default Layout";
-    const trackId = track.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/_$/, '');
     const driver = attrs.driver || "Unknown Driver";
     const car = attrs.car || "Unknown Car";
 
-    // Fallback vector car if image doesn't load
-    const fallbackSvg = encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,0.1)"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>`);
+    const trackPaths = this._generateImagePaths('/local/simhub/tracks', track);
+    const carPaths = this._generateImagePaths('/local/simhub/cars', car);
 
     return html`
       <ha-card>
@@ -100,7 +99,13 @@ class SimHubLapTrackerCard extends LitElement {
               <span class="driver-label">DRIVER</span>
               <div class="driver-name">${driver}</div>
             </div>
-            <div class="track-info" style="background-image: url('/local/simhub/tracks/${trackId}.png');">
+            <div class="track-info">
+              <img 
+                class="track-image-bg" 
+                src="${trackPaths[0]}" 
+                data-paths="${trackPaths.slice(1).join(',')}"
+                @error="${this._handleImageError}" 
+                alt="${track}" />
               <div class="track-name">${track}</div>
               <div class="track-layout">${layout}</div>
             </div>
@@ -115,8 +120,9 @@ class SimHubLapTrackerCard extends LitElement {
             <div class="car-section">
               <img 
                 class="car-image" 
-                src="/local/simhub/cars/${car}.png" 
-                onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,${fallbackSvg}';" 
+                src="${carPaths[0]}" 
+                data-paths="${carPaths.slice(1).join(',')}"
+                @error="${this._handleImageError}" 
                 alt="${car}" />
               <div class="car-name">${car.replace(/_/g, ' ').toUpperCase()}</div>
             </div>
@@ -139,6 +145,62 @@ class SimHubLapTrackerCard extends LitElement {
         </div>
       </ha-card>
     `;
+  }
+
+  _generateImagePaths(basePath, name) {
+    if (!name) return [];
+    
+    const formats = new Set();
+    
+    // 1. Original Case (Case-sensitive exact match)
+    formats.add(name);
+    
+    // 2. Original with spaces to underscores
+    formats.add(name.replace(/ /g, '_'));
+    
+    // 3. Original with underscores to spaces
+    formats.add(name.replace(/_/g, ' '));
+    
+    // 4. CamelCase (PascalCase)
+    const pascalCase = name.replace(/(?:^\w|[A-Z]|\b\w)/g, word => word.toUpperCase()).replace(/\s+|_/g, '');
+    if (pascalCase) formats.add(pascalCase);
+    
+    // 5. lowerCamelCase
+    if (pascalCase) formats.add(pascalCase.charAt(0).toLowerCase() + pascalCase.slice(1));
+    
+    // 6. Lowercase with underscores (original default)
+    formats.add(name.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/_$/, ''));
+    
+    // 7. Lowercase with spaces
+    formats.add(name.toLowerCase().replace(/_/g, ' '));
+    
+    // 8. Lowercase with no spaces
+    formats.add(name.toLowerCase().replace(/[^a-z0-9]/g, ''));
+
+    return Array.from(formats).map(f => `${basePath}/${f}.png`);
+  }
+
+  _handleImageError(e) {
+    const img = e.target;
+    const pathsStr = img.getAttribute('data-paths');
+    if (pathsStr) {
+      const paths = pathsStr.split(',');
+      const nextPath = paths.shift();
+      img.src = nextPath;
+      if (paths.length > 0) {
+        img.setAttribute('data-paths', paths.join(','));
+      } else {
+        img.removeAttribute('data-paths');
+      }
+    } else {
+      img.onerror = null;
+      if (img.classList.contains('car-image')) {
+        const fallbackSvg = encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,0.1)"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>');
+        img.src = 'data:image/svg+xml;utf8,' + fallbackSvg;
+      } else if (img.classList.contains('track-image-bg')) {
+        img.style.display = 'none';
+      }
+    }
   }
 
   getRelativeTime(timestamp) {
@@ -245,17 +307,30 @@ class SimHubLapTrackerCard extends LitElement {
       }
 
       .track-info {
+        position: relative;
         text-align: right;
         min-width: 150px;
         min-height: 60px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        background-size: 100px;
-        background-position: right center;
-        background-repeat: no-repeat;
         padding-right: 4px;
         border-radius: 8px;
+        z-index: 1;
+      }
+
+      .track-image-bg {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100px;
+        height: auto;
+        max-height: 100%;
+        object-fit: contain;
+        z-index: -1;
+        opacity: 0.6;
+        pointer-events: none;
       }
 
       .track-name {
