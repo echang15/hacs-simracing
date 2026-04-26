@@ -93,13 +93,13 @@ class SimHubLapTrackerCard extends LitElement {
     return html`
       <ha-card>
         <div class="card-background"></div>
-        <img 
-          class="card-track-bg" 
-          src="${trackPaths[0]}" 
-          data-paths="${trackPaths.slice(1).join(',')}"
-          @error="${this._handleImageError}" 
-          alt="${track}" />
         <div class="card-content">
+          <img 
+            class="card-track-bg" 
+            src="${trackPaths[0]}" 
+            data-paths="${trackPaths.slice(1).join(',')}"
+            @error="${this._handleImageError}" 
+            alt="${track}" />
           
           <div class="top-row">
             <div class="driver-info">
@@ -161,6 +161,10 @@ class SimHubLapTrackerCard extends LitElement {
     
     // 3. Original with underscores to spaces
     formats.add(name.replace(/_/g, ' '));
+    
+    // 4. CamelCase/PascalCase to snake_case (e.g. BrandsHatch -> brands_hatch)
+    const snakeCase = name.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
+    formats.add(snakeCase);
     
     // 4. CamelCase (PascalCase)
     const pascalCase = name.replace(/(?:^\w|[A-Z]|\b\w)/g, word => word.toUpperCase()).replace(/\s+|_/g, '');
@@ -276,9 +280,12 @@ class SimHubLapTrackerCard extends LitElement {
         display: flex;
         flex-direction: column;
         gap: 24px;
+        overflow: hidden;
       }
 
       .top-row {
+        position: relative;
+        z-index: 1;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -349,6 +356,8 @@ class SimHubLapTrackerCard extends LitElement {
       }
 
       .middle-row {
+        position: relative;
+        z-index: 1;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -406,6 +415,8 @@ class SimHubLapTrackerCard extends LitElement {
       }
 
       .recent-laps-section {
+        position: relative;
+        z-index: 1;
         background: rgba(0,0,0,0.2);
         border-radius: 16px;
         padding: 16px;
