@@ -86,8 +86,9 @@ class SimHubLapTrackerCard extends LitElement {
     const driver = attrs.driver || "Unknown Driver";
     const car = attrs.car || "Unknown Car";
 
-    const trackPaths = this._generateImagePaths('/local/simhub/tracks', track);
-    const carPaths = this._generateImagePaths('/local/simhub/cars', car);
+    const imageBaseUrl = this.config.image_base_url || '/hacsfiles/ha-simhub-mqtt-reader';
+    const trackPaths = this._generateImagePaths(`${imageBaseUrl}/tracks`, track);
+    const carPaths = this._generateImagePaths(`${imageBaseUrl}/cars`, car);
 
     return html`
       <ha-card>
