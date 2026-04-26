@@ -7,7 +7,7 @@ from google import genai
 # ⚙️ CONFIGURATION
 # ==========================================
 # Get your free Gemini API key from Google AI Studio: https://aistudio.google.com/
-GEMINI_API_KEY = "AIzaSyDO1j2CQ9iQabuMSNkwzi8qEiRQEIWeDU4"
+GEMINI_API_KEY = "gone"
 
 CARS_OUTPUT_DIR = "cars"
 TRACKS_OUTPUT_DIR = "tracks"
