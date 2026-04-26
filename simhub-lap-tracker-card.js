@@ -163,10 +163,10 @@ class SimHubLapTrackerCard extends LitElement {
     if (!layout || layout === 'Unknown Layout' || layout === 'Default Layout') {
       return "Default Layout";
     }
-    
+
     // Replace underscores and dashes with spaces
     let formatted = layout.replace(/[_-]/g, ' ');
-    
+
     // If the track name is duplicated inside the layout string, remove it!
     if (track) {
       const trackWord = track.replace(/[^a-zA-Z0-9]/g, '');
@@ -175,13 +175,13 @@ class SimHubLapTrackerCard extends LitElement {
         formatted = formatted.replace(regex, ' ');
       }
     }
-    
+
     // Clean up any double spaces that might be left over
     formatted = formatted.replace(/\s+/g, ' ').trim();
-    
+
     // If stripping the track name left us with nothing, provide a default
     if (!formatted) return "Default Layout";
-    
+
     // Title Case the remaining words for a clean look
     return formatted.split(' ').map(w => {
       const upper = w.toUpperCase();
@@ -193,35 +193,35 @@ class SimHubLapTrackerCard extends LitElement {
 
   _generateImagePaths(basePath, name) {
     if (!name) return [];
-    
+
     const formats = new Set();
-    
+
     // 1. Original Case (Case-sensitive exact match)
     formats.add(name);
-    
+
     // 2. Original with spaces to underscores
     formats.add(name.replace(/ /g, '_'));
-    
+
     // 3. Original with underscores to spaces
     formats.add(name.replace(/_/g, ' '));
-    
+
     // 4. CamelCase/PascalCase to snake_case (e.g. BrandsHatch -> brands_hatch)
     const snakeCase = name.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
     formats.add(snakeCase);
-    
+
     // 4. CamelCase (PascalCase)
     const pascalCase = name.replace(/(?:^\w|[A-Z]|\b\w)/g, word => word.toUpperCase()).replace(/\s+|_/g, '');
     if (pascalCase) formats.add(pascalCase);
-    
+
     // 5. lowerCamelCase
     if (pascalCase) formats.add(pascalCase.charAt(0).toLowerCase() + pascalCase.slice(1));
-    
+
     // 6. Lowercase with underscores (original default)
     formats.add(name.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/_$/, ''));
-    
+
     // 7. Lowercase with spaces
     formats.add(name.toLowerCase().replace(/_/g, ' '));
-    
+
     // 8. Lowercase with no spaces
     formats.add(name.toLowerCase().replace(/[^a-z0-9]/g, ''));
 
@@ -452,7 +452,7 @@ class SimHubLapTrackerCard extends LitElement {
       .car-name {
         font-family: var(--font-numbers);
         font-size: 0.7rem;
-        color: var(--text-muted);
+        color: var(--text-main);
         margin-top: 8px;
         letter-spacing: 1px;
       }
