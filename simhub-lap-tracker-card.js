@@ -93,6 +93,12 @@ class SimHubLapTrackerCard extends LitElement {
     return html`
       <ha-card>
         <div class="card-background"></div>
+        <img 
+          class="card-track-bg" 
+          src="${trackPaths[0]}" 
+          data-paths="${trackPaths.slice(1).join(',')}"
+          @error="${this._handleImageError}" 
+          alt="${track}" />
         <div class="card-content">
           
           <div class="top-row">
@@ -101,12 +107,6 @@ class SimHubLapTrackerCard extends LitElement {
               <div class="driver-name">${driver}</div>
             </div>
             <div class="track-info">
-              <img 
-                class="track-image-bg" 
-                src="${trackPaths[0]}" 
-                data-paths="${trackPaths.slice(1).join(',')}"
-                @error="${this._handleImageError}" 
-                alt="${track}" />
               <div class="track-name">${track}</div>
               <div class="track-layout">${layout}</div>
             </div>
@@ -198,7 +198,7 @@ class SimHubLapTrackerCard extends LitElement {
       if (img.classList.contains('car-image')) {
         const fallbackSvg = encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,0.1)"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>');
         img.src = 'data:image/svg+xml;utf8,' + fallbackSvg;
-      } else if (img.classList.contains('track-image-bg')) {
+      } else if (img.classList.contains('card-track-bg')) {
         img.style.display = 'none';
       }
     }
@@ -311,27 +311,25 @@ class SimHubLapTrackerCard extends LitElement {
         position: relative;
         text-align: right;
         min-width: 150px;
-        min-height: 60px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        padding-right: 4px;
-        border-radius: 8px;
         z-index: 1;
       }
 
-      .track-image-bg {
+      .card-track-bg {
         position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100px;
-        height: auto;
-        max-height: 100%;
-        object-fit: contain;
-        z-index: -1;
-        opacity: 0.6;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 0;
+        opacity: 0.35;
+        mix-blend-mode: screen;
         pointer-events: none;
+        transition: opacity 0.5s ease-in-out;
       }
 
       .track-name {
