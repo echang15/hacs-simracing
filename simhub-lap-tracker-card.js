@@ -86,7 +86,7 @@ class SimHubLapTrackerCard extends LitElement {
     const driver = attrs.driver || "Unknown Driver";
     const car = attrs.car || "Unknown Car";
 
-    const imageBaseUrl = this.config.image_base_url || '/hacsfiles/ha-simhub-mqtt-reader';
+    const imageBaseUrl = this.config.image_base_url || 'https://raw.githubusercontent.com/echang15/hacs-simracing/main';
     const trackPaths = this._generateImagePaths(`${imageBaseUrl}/tracks`, track);
     const carPaths = this._generateImagePaths(`${imageBaseUrl}/cars`, car);
 
